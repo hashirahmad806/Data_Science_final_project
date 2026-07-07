@@ -1,0 +1,7 @@
+Fake.csv
+True.csv
+fake_news_cleaned.csv
+phase2_artifacts.pkl
+best_model.pkl
+.ipynb_checkpoints/
+__pycache__/
