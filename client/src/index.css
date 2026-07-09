@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #fbf8fc;
+  --color-surface-dim: #dbd9dc;
+  --color-surface-bright: #fbf8fc;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3f6;
+  --color-surface-container: #efedf0;
+  --color-surface-container-high: #eae7ea;
+  --color-surface-container-highest: #e4e2e5;
+  --color-on-surface: #1b1b1e;
+  --color-on-surface-variant: #45474e;
+  --color-inverse-surface: #303033;
+  --color-inverse-on-surface: #f2f0f3;
+  --color-outline: #75777e;
+  --color-outline-variant: #c5c6ce;
+  --color-surface-tint: #505e80;
+  --color-primary: #00071b;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #0f1f3d;
+  --color-on-primary-container: #7887ab;
+  --color-inverse-primary: #b7c6ed;
+  --color-secondary: #545f72;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #d5e0f7;
+  --color-on-secondary-container: #586377;
+  --color-tertiary: #100500;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #331900;
+  --color-on-tertiary-container: #a97f59;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-background: #fbf8fc;
+  --color-on-background: #1b1b1e;
+  --color-surface-variant: #e4e2e5;
+  --color-success: #2a9d8f;
+
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --spacing-base: 8px;
+  --spacing-xs: 4px;
+  --spacing-sm: 12px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --spacing-xl: 80px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 1.5rem;
+}
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+  body {
+    @apply bg-background text-on-background font-sans antialiased;
+  }
+
+  /* Custom Scrollbar for Pro Feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-variant rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-outline-variant;
+  }
+}
+
+@layer components {
+  .mono-metric {
+    @apply font-mono font-medium;
+  }
+
+  .card-base {
+    @apply bg-white border border-surface-variant rounded-xl p-6 shadow-sm transition-all duration-300;
+  }
+  
+  .card-base:hover {
+    @apply shadow-lg border-primary/20 transform -translate-y-1;
+  }
+
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-xl;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}

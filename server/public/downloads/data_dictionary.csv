@@ -1,0 +1,14 @@
+Column Name,Data Type,Description
+title,string,Title of the news article
+text,string,Full text content of the news article
+subject,string,Category/subject classification (e.g. politicsNews, worldnews)
+date,string,Original publication date string
+label,integer,Target variable: 1 for Real news and 0 for Fake news
+date_parsed,datetime,Parsed publication timestamp in ISO format
+title_length,integer,Total character count of the title
+text_length,integer,Total character count of the full text
+title_word_count,integer,Word count of the title
+text_word_count,integer,Word count of the full text
+avg_word_length,float,Average character length of words in the text
+punctuation_count,integer,Total count of punctuation marks in the text
+uppercase_word_count,integer,Total count of all-uppercase words in the text
