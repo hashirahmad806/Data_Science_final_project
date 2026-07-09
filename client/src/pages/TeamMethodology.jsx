@@ -15,7 +15,7 @@ export default function TeamMethodology() {
       <section>
         <h3 className="text-xl font-semibold mb-6">The Team</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {["HASHIR AHMAD", "ARYAN KHAN", "KALEEMULAH", "AFAQ AHMAD"].map(num => (
+          {["HASHIR AHMAD", "ARYAN KHAN", "KALEEMULLAH", "AFAQ AHMAD"].map(num => (
             <Card key={num} className="text-center">
               <div className="w-16 h-16 bg-surface-variant rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold text-secondary">
                 {num.charAt(0)}
