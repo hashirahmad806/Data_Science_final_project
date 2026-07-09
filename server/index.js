@@ -23,6 +23,14 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/veritasai')
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log("MongoDB connection error:", err));
 
+app.get('/', (req, res) => {
+    res.json({ status: 'ok', service: 'veritasai-backend' });
+});
+
+app.get('/health', (req, res) => {
+    res.json({ status: 'ok', mongo: mongoose.connection.readyState === 1 });
+});
+
 // GET /api/summary - Dashboard KPIs
 app.get('/api/summary', async (req, res) => {
     try {
