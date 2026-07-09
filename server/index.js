@@ -18,6 +18,15 @@ app.use(cors());
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+// Handle invalid JSON payloads gracefully (body-parser / express.json errors)
+app.use((err, req, res, next) => {
+    if (err && (err instanceof SyntaxError || err.type === 'entity.parse.failed')) {
+        console.warn('Invalid JSON received on', req.method, req.originalUrl);
+        return res.status(400).json({ error: 'Invalid JSON payload' });
+    }
+    next(err);
+});
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/veritasai')
   .then(() => console.log("MongoDB connected"))

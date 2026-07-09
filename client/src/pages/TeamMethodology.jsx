@@ -15,13 +15,13 @@ export default function TeamMethodology() {
       <section>
         <h3 className="text-xl font-semibold mb-6">The Team</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[1, 2, 3, 4].map(num => (
+          {["HASHIR AHMAD", "ARYAN KHAN", "KALEEMULAH", "AFAQ AHMAD"].map(num => (
             <Card key={num} className="text-center">
               <div className="w-16 h-16 bg-surface-variant rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold text-secondary">
-                S{num}
+                {num.charAt(0)}
               </div>
-              <h4 className="font-bold text-primary">Student Name {num}</h4>
-              <p className="text-xs text-secondary mt-1 font-mono">ID-{2024000 + num}</p>
+              <h4 className="font-bold text-primary">{num}</h4>
+              <p className="text-xs text-secondary mt-1 font-mono">24PWBCS1290 </p>
             </Card>
           ))}
         </div>
@@ -123,7 +123,7 @@ export default function TeamMethodology() {
               </div>
             </div>
             <a 
-              href="https://github.com" 
+              href="https://github.com/hashirahmad806/Data_Science_final_project" 
               target="_blank" 
               rel="noreferrer" 
               className="inline-block w-max text-sm font-medium text-primary border border-primary px-4 py-2 rounded hover:bg-surface-variant transition-colors"
