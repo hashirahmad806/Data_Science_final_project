@@ -20,7 +20,10 @@ export default function Dashboard() {
     fetch(apiUrl("/api/summary"))
       .then((res) => res.json())
       .then((data) => setSummary(data))
-      .catch((err) => console.error("Error fetching summary:", err));
+      .catch((err) => {
+        console.error("Error fetching summary:", err);
+        setSummary(fallbackSummary);
+      });
   }, []);
 
   return (

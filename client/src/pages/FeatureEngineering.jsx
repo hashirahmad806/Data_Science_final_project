@@ -37,7 +37,10 @@ export default function FeatureEngineering() {
     fetch(apiUrl("/api/features"))
       .then((res) => res.json())
       .then((data) => setFeatures(data))
-      .catch((err) => console.error("Error fetching features:", err));
+      .catch((err) => {
+        console.error("Error fetching features:", err);
+        setFeatures(fallbackFeatures);
+      });
   }, []);
 
   if (!features)
@@ -263,12 +266,10 @@ export default function FeatureEngineering() {
           <div className="h-80 mt-4">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
-                data={topFeatures
-                  .slice(0, 20)
-                  .map((f) => ({
-                    ...f,
-                    importance: parseFloat(f.importance.toFixed(2)),
-                  }))}
+                data={topFeatures.slice(0, 20).map((f) => ({
+                  ...f,
+                  importance: parseFloat(f.importance.toFixed(2)),
+                }))}
                 layout="vertical"
                 margin={{ top: 5, right: 30, left: 80, bottom: 5 }}
               >

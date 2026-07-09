@@ -42,7 +42,10 @@ export default function Evaluation() {
     fetch(apiUrl("/api/models"))
       .then((res) => res.json())
       .then((data) => setModels(data))
-      .catch((err) => console.error("Error fetching models:", err));
+      .catch((err) => {
+        console.error("Error fetching models:", err);
+        setModels(fallbackModels);
+      });
   }, []);
 
   if (!models || !models.comparison)

@@ -60,7 +60,10 @@ export default function DatasetEDA() {
     fetch(apiUrl("/api/eda"))
       .then((res) => res.json())
       .then((data) => setEda(data))
-      .catch((err) => console.error("Error fetching EDA:", err));
+      .catch((err) => {
+        console.error("Error fetching EDA:", err);
+        setEda(fallbackEda);
+      });
   }, []);
 
   if (!eda)

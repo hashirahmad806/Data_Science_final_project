@@ -3,7 +3,7 @@ import { Card, CardHeader, MetricCard, StatusChip } from "../components/ui";
 import { BookOpen, Cpu, CpuIcon, Award, Settings, Layers } from "lucide-react";
 import { Link } from "react-router-dom";
 import { apiUrl } from "../lib/api";
-
+import { fallbackModels } from "../data/fallbackData";
 const BADGE = ({ notebook, cell }) => (
   <a
     href="/notebooks"
@@ -20,7 +20,10 @@ export default function ModelDevelopment() {
     fetch(apiUrl("/api/models"))
       .then((res) => res.json())
       .then((data) => setModels(data))
-      .catch((err) => console.error("Error fetching models:", err));
+      .catch((err) => {
+        console.error("Error fetching models:", err);
+        setModels(fallbackModels);
+      });
   }, []);
 
   if (!models || !models.comparison)
